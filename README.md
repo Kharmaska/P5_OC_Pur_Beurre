@@ -1,4 +1,4 @@
-# Project n°: OC_Pur_Beurre
+# Project n°5: OC_Pur_Beurre
 
 ## 1. Purpose of the application
 
@@ -106,4 +106,12 @@ When the use selects the **option '2'**, the application is leading the user to 
 * Categories: For the purpose of this exercise, [The API Call on Categories](https://fr.openfoodfacts.org/categories.json) should be limited to only food categories with more than 20 products listed.
 * Products: Once a category is selected, the user should be served with a list of products based this example [API Call on a specific Category](https://fr.openfoodfacts.org/categorie/pommes-de-terre-charlotte.json)
 
-TBD
+## 5. Open Food Facts API endpoints used
+
+This program is only doing READ operations on the ressources and collections from the Open Food Facts API. Moreover, the program is only meant for the French users in its first version, therefore the endpoints are only using the French country code parameter:
+
+*Example:*
+
+```
+GET https://fr.openfoodfacts.org/categorie/pizzas.json
+
