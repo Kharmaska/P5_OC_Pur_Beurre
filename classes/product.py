@@ -15,8 +15,9 @@ class Product:
         self.nutrition_grade = " "
         self.product_url = " "
         self.product_store = " "
+        self.product_id = 0
 
-    def add_product(self,product_name,category_name,nutrition_grade,product_store,product_url):
+    def add_product(self,product_name,category_name,nutrition_grade,product_store,product_url, product_id):
         """Adds the product to the DDB"""
 
         self.product_name = product_name
@@ -24,6 +25,7 @@ class Product:
         self.nutrition_grade = nutrition_grade
         self.product_url = product_url
         self.product_store = product_store
+        self.product_id = product_id
 
 
     def display_product(self):
@@ -38,7 +40,13 @@ class Product:
             )
         )
 
+    def save_product(self):
+        """ Saves the selected product to the user's database"""
+
+        # TBD
+        pass
+
 #  TO BE REMOVED | Just a fake product for now to test if class instanciation would look correct
 newProduct = Product()
-newProduct.add_product('Coucou Cola','Boissons','E','Carrouf','sugarfull.org')
+newProduct.add_product('Coucou Cola','Boissons','E','Carrouf','sugarfull.org',12458)
 newProduct.display_product()
