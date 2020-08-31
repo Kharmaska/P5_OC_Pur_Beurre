@@ -1,3 +1,4 @@
+DROP DATABASE DBOpenFF;
 CREATE DATABASE DBOpenFF;
 USE DBOpenFF;
 
@@ -7,9 +8,7 @@ CREATE TABLE product (
     category_id SMALLINT(6) UNSIGNED NULL,
     product_name VARCHAR(300) NOT NULL,
     category_name VARCHAR(300) NULL,
-    nutrition_grade CHAR(1) NOT NULL,
-    product_url VARCHAR(1000) NOT NULL,
-    product_store VARCHAR(500) NULL,
+    nutrition_grade CHAR(1) NOT NULL,    
     PRIMARY KEY (id)
 )  ENGINE=INNODB;
 
@@ -27,7 +26,9 @@ CREATE TABLE substitute (
     saved_product_grade CHAR(1) NOT NULL,
     saved_substitute_id INT UNSIGNED NOT NULL,
     saved_substitute_name VARCHAR(800) NOT NULL,
-    saved_substitute_grade CHAR(1) NOT NULL
+    saved_substitute_grade CHAR(1) NOT NULL,
+    saved_substitute_url VARCHAR(1000) NOT NULL,
+    saved_substitute_store VARCHAR(500)  NULL       
 )  ENGINE=INNODB;
 
 -- TABLE : category_products
@@ -50,9 +51,6 @@ ADD CONSTRAINT fk_cat_prod_category_id FOREIGN KEY (category_id) REFERENCES cate
 ALTER TABLE substitute
 ADD CONSTRAINT fk_sav_prod_product_id FOREIGN KEY (saved_product_id) REFERENCES product(id);
 
--- FK substitute : substitute_substitute_id
-ALTER TABLE substitute
-ADD CONSTRAINT fk_sav_subs_product_id FOREIGN KEY (saved_substitute_id) REFERENCES product(id);
 
 
 -- CREATE INDEXES
@@ -66,15 +64,20 @@ ALTER TABLE product
 ADD INDEX ind_product_name (product_name);
 
 
--- TEST data for testing - To be removed once python script to connect with OFF is created
+-- TEST FAKE DATA -- To be removed once python script to connect with OFF is created
 
 -- insert data into the Products table
-INSERT INTO Product VALUES (1,123,'Coucou-Cola','Boissons gazeuses', 'D','www.coucou-cola.fat',"Le Gras C'est la vie"),
-(2,1234,'NesLow','Petit-déjeuner', 'E','www.NesLow.sugar','Tout pour le petit déj'),
-(3,12345,'Coquinou','Saucisses', 'E','www.Biendecheznous.fr','Carrouf');
+INSERT INTO Product VALUES (1,123,'Coucou-Cola','Boissons gazeuses', 'D'),
+(2,1234,'NesLow','Petit-déjeuner', 'E'),
+(3,12345,'Coquinou','Saucisses', 'E');
 
 
 -- insert data  into the Category table
 INSERT INTO Category VALUES (123,'Boissons gazeuses'),
 (1234,'Petit-déjeuner'),
 (12345,'Saucisses');
+
+-- insert data  into the Substitutes table
+INSERT INTO Substitute VALUES (1,'Coucou-Cola','D',14568,'Better Cola','B','fatfree.fr','La Vie Claire'),
+(2,'NesLow','D',14897,'NesLowSugar','B','www.NesLow.sugar','Tout pour le petit déj'),
+(3,'Coquinou','E',187964,'Saucisses végétales','B','www.Biendecheznous.fr','Carrouf');

@@ -13,18 +13,15 @@ class Product:
         self.product_name = " "
         self.category_name = " "
         self.nutrition_grade = " "
-        self.product_url = " "
-        self.product_store = " "
         self.product_id = 0
 
-    def add_product(self,product_name,category_name,nutrition_grade,product_store,product_url, product_id):
+    def add_product(self,product_name,category_name,
+                    nutrition_grade, product_id):
         """Adds the product to the DDB"""
 
         self.product_name = product_name
         self.category_name = category_name
         self.nutrition_grade = nutrition_grade
-        self.product_url = product_url
-        self.product_store = product_store
         self.product_id = product_id
 
 
@@ -32,12 +29,11 @@ class Product:
         """ Displays the selected product to the user"""
         print(
             "Vous avez sélectionné {} de la catégorie {} \n"
-            "Son nutriscore est de rang {} \n"
-            "Url du produit : {} \n"
-            "Où l'acheter : {}".format(
-                self.product_name, self.category_name, self.nutrition_grade,
-                self.product_url, self.product_store
-            )
+            "Son nutriscore est de rang {} \n".format(
+                self.product_name,
+                self.category_name,
+                self.nutrition_grade
+                )
         )
 
     def save_product(self):
@@ -48,5 +44,5 @@ class Product:
 
 #  TO BE REMOVED | Just a fake product for now to test if class instanciation would look correct
 newProduct = Product()
-newProduct.add_product('Coucou Cola','Boissons','E','Carrouf','sugarfull.org',12458)
+newProduct.add_product('Coucou Cola','Boissons','E',12458)
 newProduct.display_product()
