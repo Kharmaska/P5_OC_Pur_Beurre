@@ -14,6 +14,17 @@ headers = {'Content-Type': 'application/json; charset=utf-8',
 
 response = requests.get(API_URL_BASE, headers=headers)
 print(response)
-data = response.json()
-print(type(data))
-print(data)
+data_set = response.json()
+
+# Test looping on categories names of the json response
+# from the API to only get Categories with more than 15k products
+for data in data_set['tags']:
+    if int(data.get('products')) > 15000:
+        print("Catégorie : " + data.get('name')
+               + " contenant : "
+               + str(data.get('products')) + " produits.")
+
+# for data in data_set:
+#     url = data.get('url')
+#     print(url)
+    
