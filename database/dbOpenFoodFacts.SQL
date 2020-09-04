@@ -63,20 +63,4 @@ ALTER TABLE product
 ADD INDEX ind_product_name (product_name);
 
 
--- TEST FAKE DATA -- To be removed once python script to connect with OFF is created
 
--- insert data into the Products table
-INSERT INTO Product VALUES (1,123,'Coucou-Cola','Boissons gazeuses', 'D'),
-(2,1234,'NesLow','Petit-déjeuner', 'E'),
-(3,12345,'Coquinou','Saucisses', 'E');
-
-
--- insert data  into the Category table
-INSERT INTO Category VALUES (123,'Boissons gazeuses'),
-(1234,'Petit-déjeuner'),
-(12345,'Saucisses');
-
--- insert data  into the Substitutes table
-INSERT INTO Substitute VALUES (1,'Coucou-Cola','D',14568,'Better Cola','B','fatfree.fr','La Vie Claire'),
-(2,'NesLow','D',14897,'NesLowSugar','B','www.NesLow.sugar','Tout pour le petit déj'),
-(3,'Coquinou','E',187964,'Saucisses végétales','B','www.Biendecheznous.fr','Carrouf');
