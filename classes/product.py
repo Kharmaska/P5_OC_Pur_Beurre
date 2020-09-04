@@ -44,10 +44,15 @@ class Product:
         
         try:
             self.cursor.execute(ADD_PRODUCT_DATA, add_prod)
-            self.cursor.execute()
+            self.cursor.execute(UPDATE_PRODUCT_DATA)
+            self.mydb.commit()
         
         except mysql.connector.errors.IntegrityError:
             pass
+    
+    def cursor_closed(self):
+        self.cursor.close()
+        self.mydb.close()
 
     def display_product(self):
         """ Displays the selected product to the user"""
@@ -60,8 +65,8 @@ class Product:
                 )
         )
 
-    def save_product(self):
-        """ Saves the selected product to the user's database"""
+    def save_substitute(self):
+        """ Saves the selected substitute to the user's database"""
 
         # TBD
         pass
