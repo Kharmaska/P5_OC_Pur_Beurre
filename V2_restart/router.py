@@ -10,9 +10,8 @@ def display_options():
     On Categories or Saved Products selection, the function will call on
     corresponding functions to guide the user through more choices.
     """
-    loop = True
-    while loop is True:
-        choice = input("\nBienvenue sur l'application Pur Beurre ! \n"
+    while True:
+        choice = input("\nBienvenue sur l'application Pur Beurre ! \n"<
                 "   \n"
                 "Veuillez effectuer un choix : \n"
                 "   \n"
@@ -21,14 +20,14 @@ def display_options():
                 "3- Quitter le programme. \n"
                 "Entrez le chiffre correspondant à votre choix :\n")
         if choice == "1":
-            loop = False
+            
             display_categories()
         elif choice == "2":
-            loop = False
+            
             display_saved_prodcuts()
         elif choice == "3":
             print("Merci d'avoir utiliser Pur Beurre, à bientôt !")
-            loop = False
+            break
         else:
             print("===========\n"
                   "   \n"
@@ -57,7 +56,7 @@ def display_categories():
     # Input Non, on repropose la liste de 100 produits de la catégorie
 
 def display_saved_prodcuts():
-    # On boucle sur la table saved_product ou alors on affiche tous les product dont le champ save_product vaut True.
+    # On boucle sur la table saved_product ou alors on affiche tous les product dont le champ favorite vaut True.
     print("On imagine ici qu'on a une liste de produits déjà pre-save")
 
 

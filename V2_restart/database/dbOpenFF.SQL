@@ -1,3 +1,4 @@
+IF NOT EXISTS DBOpenFF;
 CREATE DATABASE DBOpenFF;
 USE DBOpenFF;
 
@@ -10,15 +11,15 @@ CREATE TABLE categories (
 
 
 CREATE TABLE products (
-                ID INT AUTO_INCREMENT NOT NULL,
+                ID INT NOT NULL,
                 product_name VARCHAR(300) NOT NULL,
                 category_name VARCHAR(300),
                 category_id INT NOT NULL,
                 nutrition_grade CHAR(1) NOT NULL,
                 product_desc VARCHAR(1500) NOT NULL,
-                product_store VARCHAR(500),
                 product_url VARCHAR(1000) NOT NULL,
-                substitute_id INT DEFAULT 1 NOT NULL,
+                favorite BOOLEAN DEFAULT False NOT NULL,
+                substitute_id INT NULL,
                 PRIMARY KEY (ID)
 ) ENGINE=INNODB;
 
