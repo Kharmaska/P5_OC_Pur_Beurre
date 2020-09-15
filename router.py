@@ -105,7 +105,8 @@ def display_categories():
         cat_choice = input("Veuillez entre le numéro de la catégorie : ")
         print("Vous avez sélectionné la catégorie : "
               + categories_dict[int(cat_choice)]['name'] + "\n"
-        "voici la liste des produits disponibles : "  )
+        "   \n"
+        "Voici la liste des produits disponibles : "  )
 
     # On boucle sur la liste des 100 premiers produits de la catégorie
     # L'utilisateur sélectionne un produit dans la liste
@@ -121,4 +122,3 @@ def display_saved_prodcuts():
     print("On imagine ici qu'on a une liste de produits déjà pre-save")
 
 display_options()
-

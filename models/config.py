@@ -9,4 +9,4 @@ The fields below need to be replace with the user's DB and host config
 
 DATABASE = "DBOpenFF"
 HOST = "localhost"
-FILE = "dbOpenFoodFacts.sql"
+FILE = "dbOpenFF.SQL"
