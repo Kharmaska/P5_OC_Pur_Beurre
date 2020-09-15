@@ -90,24 +90,23 @@ def display_categories():
 
         },
     }
+    print("Veuillez choisir l'une des catégories de produits suivantes en tapant son numéro : \n")
     # Ici on récupérera la liste des 10 catégories pré-sélectionnées
     #  et incluse dans un dictionnaire python
         # 1- Pizzas
         # 2- Boissons
         # 3-Le gras c'est la vie, etc
     # Puis on boucle sur la liste pour afficher les nom des catégories avec un choix numérique
-    
+
     for category in categories_dict:
         print (str(category) + " : " + categories_dict[category]['name'])
-        input("Veuillez choisir l'une des catégories de produits suivantes en tapant son chiffre: \n")
-        if int(input) == category:
-            print("Vous avez sélectionné la catégorie" + categories_dict[category]['name'])
-            print("voici la liste des produits disponibles : ")
-            # ici on boucle sur la liste de 100 produits disponibles pour la 
-            # catégorie dans la BDD locale
-        else:
-            break
     # On récupère l'input utilisateur
+    for category in categories_dict:
+        cat_choice = input("Veuillez entre le numéro de la catégorie : ")
+        print("Vous avez sélectionné la catégorie : "
+              + categories_dict[int(cat_choice)]['name'] + "\n"
+        "voici la liste des produits disponibles : "  )
+
     # On boucle sur la liste des 100 premiers produits de la catégorie
     # L'utilisateur sélectionne un produit dans la liste
     # On affiche un substitut avec un meilleur nutriscore
